@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User list</title>
+</head>
+<body>
+<th:block th:each="msg : ${users}">
+    <h1 th:text="${msg}"></h1>
+</th:block>
+</body>
+</html>
