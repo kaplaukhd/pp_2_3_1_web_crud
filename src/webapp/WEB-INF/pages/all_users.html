@@ -5,8 +5,17 @@
     <title>User list</title>
 </head>
 <body>
-<th:block th:each="msg : ${users}">
-    <h1 th:text="${msg}"></h1>
-</th:block>
+<div align="center">
+    <h2>All Users</h2>
+<table>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.getId()}">Id</td>
+            <td th:text="${user.getName()}">name</td>
+            <td th:text="${user.getLastName()}">lastname</td>
+            <td th:text="${user.getAge()}">age</td>
+        </tr>
+    </table>
+    <h3><a href="{/new_user}" style="background: yellowgreen">Add new user</a></h3>
+</div>
 </body>
 </html>

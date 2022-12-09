@@ -1,15 +1,13 @@
 package crud.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "user")
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     Long id;
 
@@ -20,12 +18,12 @@ public class User {
     String lastname;
 
     @Column(name = "age")
-    byte age;
+    int age;
 
     public User() {
     }
 
-    public User(String name, String lastname, byte age) {
+    public User(String name, String lastname, int age) {
         this.name = name;
         this.lastname = lastname;
         this.age = age;
@@ -47,11 +45,11 @@ public class User {
         this.lastname = lastname;
     }
 
-    public byte getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(byte age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
