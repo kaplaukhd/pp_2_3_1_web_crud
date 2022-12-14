@@ -3,24 +3,20 @@ package crud.controller;
 
 import crud.model.User;
 import crud.service.UserService;
-import crud.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
 @RequestMapping("/users")
 public class UserController {
 
-    private final UserService userService;
+    private final UserService<Long, User> userService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService<Long, User> userService) {
         this.userService = userService;
     }
 
@@ -40,5 +36,12 @@ public class UserController {
     public String addUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
         return "redirect:/users";
+    }
+
+
+    @PatchMapping("")
+    public String updateUser(User user){
+        userService.updateUser(user);
+        return "redirect:users";
     }
 }

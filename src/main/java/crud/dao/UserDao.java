@@ -1,18 +1,16 @@
 package crud.dao;
 
-import crud.model.User;
-
 import java.util.List;
 
-public interface UserDao {
+public interface UserDao<L,E> {
 
-    void saveUser(User user);
+    void saveUser(E user);
 
-    List<User> getAllUsers();
+    List<E> getAllUsers();
 
-    void removeUser(Long id);
+    void removeUser(L id);
 
-    User getUserById(Long id);
+    E getUserById(L id);
 
-    void updateUser(User user);
+    void updateUser(E user);
 }

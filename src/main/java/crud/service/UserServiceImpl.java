@@ -9,11 +9,11 @@ import java.util.List;
 
 @Transactional
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService<Long, User> {
 
-    private final UserDao userDao;
+    private final UserDao<Long, User> userDao;
 
-    public UserServiceImpl(UserDao userDao) {
+    public UserServiceImpl(UserDao<Long, User> userDao) {
         this.userDao = userDao;
     }
 
