@@ -6,9 +6,9 @@
 </head>
 <body>
 
-<div align="center">
+<div>
+    <table style="width:500px">
 
-    <table border="1" cellpadding="1" cellspacing="1" style="width:500px">
         <tbody>
         <tr>
             <td style="text-align:center">id</td>
@@ -19,11 +19,13 @@
             <td>delete</td>
         </tr>
         </tbody>
+
         <tr th:each="user : ${users}">
             <td th:text="${user.getId()}">Id</td>
             <td th:text="${user.getName()}">name</td>
             <td th:text="${user.getLastname()}">lastname</td>
             <td th:text="${user.getAge()}">age</td>
+
             <td style="text-align: center">
                 <form th:method="GET" th:action="@{/users/edit/{id}(id=${user.getId()})}">
                     <label>
@@ -31,6 +33,7 @@
                     </label>
                 </form>
             </td>
+
             <td style="text-align: center">
                 <form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
                     <label style="background-color:black">
@@ -39,11 +42,18 @@
                 </form>
             </td>
         </tr>
+
     </table>
 </div>
-<input name="create_btn" type="button" th:href="/new_user" value="Создать пользователя">&nbsp;
-<p style="margin-left:40px; text-align:center"><strong>
-    <input name="submit" type="button" value="Create"></strong>
-</p>
+<br>
+
+<div style="margin-left:40px; text-align:center">
+    <form th:method="GET" th:action="@{/users/new_user}">
+        <label>
+            <input name="submit" type="submit" value="Create">
+        </label>
+    </form>
+</div>
+
 </body>
 </html>

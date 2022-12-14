@@ -10,22 +10,25 @@
 <p style="text-align:center">&nbsp;</p>
 
 <div style="background:#eeeeee; border:1px solid #cccccc; padding:5px 10px">
-    <form th:method="POST" th:action="@{/users/}" th:object="${user}">
-        <p style="margin-left:40px; text-align:center"><label for="name">Name &nbsp;</label>
-            <input id="name" name="username" type="text" th:field="*{name}"></p>
-
-        <p style="text-align:center"><label for="lastName">Lastname &nbsp;&nbsp;</label>
-            <input id="lastName" name="lastname" type="text" th:field="*{lastname}"></strong></p>
-
-        <p style="margin-left:40px; text-align:center">
-            <label for="age">Age</label>
-            <input id="age" name="age" type="text" th:field="*{age}"></strong>
-        </p>
-        <p style="margin-left:40px; text-align:center"><strong>
-            <input name="submit" type="submit" value="Create"></strong>
-        </p>
-    </form>
 </div>
+<form th:method="POST" th:object="${user}" th:action="@{/users/}">
+    <p style="margin-left:40px; text-align:center">
+        <label for="name">Name &nbsp;</label>
+        <input id="name" name="username" type="text" th:field="*{name}">
+    </p>
+
+    <p style="text-align:center">
+        <label for="lastName">Lastname </label>
+        <input id="lastname" name="lastname" type="text" th:field="*{lastname}"></strong></p>
+
+    <p style="margin-left:40px; text-align:center">
+        <label for="age">Age</label>
+        <input id="age" name="age" type="text" th:field="*{age}">
+    </p>
+    <p style="margin-left:40px; text-align:center">
+        <input name="submit" type="submit" value="Create">
+    </p>
+</form>
 
 </body>
 </html>
