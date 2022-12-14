@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+>
 <head>
     <meta charset="UTF-8">
     <title>All Users</title>
 </head>
 <body>
 
-<div>
-    <table style="width:500px">
+<div align="center" style="background:#eeeeee; border:1px solid #cccccc; padding:5px 10px">
 
+    <table border="1" cellpadding="1" cellspacing="1" style="width:500px">
         <tbody>
         <tr>
             <td style="text-align:center">id</td>
@@ -29,7 +30,7 @@
             <td style="text-align: center">
                 <form th:method="GET" th:action="@{/users/edit/{id}(id=${user.getId()})}">
                     <label>
-                        <input th:type="submit" th:value="Edit">
+                        <input style="background-color: beige" th:type="submit" th:value="Edit">
                     </label>
                 </form>
             </td>
@@ -37,13 +38,13 @@
             <td style="text-align: center">
                 <form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
                     <label style="background-color:black">
-                        <input th:type="submit" th:value="Delete">
+                        <input style="background-color: beige" th:type="submit" th:value="Delete">
                     </label>
                 </form>
             </td>
         </tr>
-
     </table>
+
 </div>
 <br>
 

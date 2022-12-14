@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @ControllerAdvice
 @RequestMapping("/users")
 public class UserController {
-
     private final UserService<Long, User> userService;
 
     @Autowired
@@ -19,7 +18,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping()
+    @RequestMapping(method = RequestMethod.GET)
     public String indexPage(ModelMap model) {
         model.addAttribute("users", userService.getAllUsers());
         return "all_users";
@@ -43,13 +42,14 @@ public class UserController {
         return "update_user";
     }
 
-    @RequestMapping(value = "/edit/", method = RequestMethod.PATCH)
-    public String updateUser(@ModelAttribute("user") User user) {
+    @RequestMapping(value = "/edit/{id}", method = {RequestMethod.POST})
+    public String updateUser(@PathVariable("id") long id, @ModelAttribute("user") User user) {
         userService.updateUser(user);
         return "redirect:/users";
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+
+    @RequestMapping(value = "/{id}", method = {RequestMethod.POST})
     public String removeUser(@PathVariable("id") Long id) {
         userService.removeUser(id);
         return "redirect:/users";

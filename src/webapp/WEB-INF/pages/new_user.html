@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>new user page</title>
 </head>
 <body>
-<h2>New User page</h2>
-<h3>Enter data</h3>
 <p style="text-align:center">&nbsp;</p>
 
 <div style="background:#eeeeee; border:1px solid #cccccc; padding:5px 10px">
-</div>
 <form th:method="POST" th:object="${user}" th:action="@{/users/}">
     <p style="margin-left:40px; text-align:center">
         <label for="name">Name &nbsp;</label>
@@ -29,6 +26,6 @@
         <input name="submit" type="submit" value="Create">
     </p>
 </form>
-
+</div>
 </body>
 </html>
